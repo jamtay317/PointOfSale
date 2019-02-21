@@ -41,7 +41,6 @@ namespace PointOfSale.Contracts.Users
         {
             var user = _usersRepostory.Get().Single(x => x.EmployeeNumber == employeeNumber);
             user.IsClockedIn = false;
-
         }
     }
 }

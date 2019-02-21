@@ -49,17 +49,21 @@
             </Grid.RowDefinitions>
 
         <ListBox Grid.RowSpan="7" Grid.Column="0" ItemsSource="{Binding ClockedInUsers}" SelectedItem="{Binding SelectedUser}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate DataType="userModel:User">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding LastName}"></TextBlock>
-                            <TextBlock Text=", "></TextBlock>
-                            <TextBlock Text="{Binding FirstName}"></TextBlock>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        <Button Grid.Column="8" Height="35" VerticalAlignment="Top" Command="{Binding ClockInCommand}">Clock In</Button>
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="userModel:User">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding LastName}"></TextBlock>
+                        <TextBlock Text=", "></TextBlock>
+                        <TextBlock Text="{Binding FirstName}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Orientation="Horizontal"  Grid.Column="6" Grid.ColumnSpan="3">
+            <Button Height="35" VerticalAlignment="Top" Command="{Binding ClockInCommand}">Clock In</Button>
+            <Button Height="35" VerticalAlignment="Top" Command="{Binding ClockOutCommand}">Clock Out</Button>
+
+        </StackPanel>
 
         <TextBox Grid.Column="2" Grid.Row="1" Text="{Binding LoginModel.FirstNumberString, Mode=OneWay}"></TextBox>
         <TextBox Grid.Column="3" Grid.Row="1" Text="{Binding LoginModel.SecondNumberString, Mode=OneWay}"></TextBox>
