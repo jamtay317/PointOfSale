@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using PointOfSale.UsersService;
+﻿using PointOfSale.Services.Navigatoin;
 using PointOfSale.ViewModels.Bases;
 using Prism.Commands;
 
@@ -7,28 +6,24 @@ namespace PointOfSale.ViewModels
 {
     public class ShellViewModel:ViewModelBase
     {
-        private readonly UserServiceClient _userServiceClient;
+        private readonly INavigationService _navigationService;
         public string Title { get; set; } = "Point Of Sale";
 
-        public ShellViewModel()
+        public ShellViewModel(INavigationService navigationService)
         {
-            _userServiceClient = new UserServiceClient();
-            GetUsersCommand = new DelegateCommand(GetUsers);
-            Users = new ObservableCollection<User>();
+            _navigationService = navigationService;
         }
 
-        
+        public DelegateCommand LoadedCommand { get; set; }
 
-        public DelegateCommand GetUsersCommand { get; set; }
-
-        public ObservableCollection<User> Users { get; set; }
-
-
-        private void GetUsers()
+        protected override void RegiserCommands()
         {
-            var users = _userServiceClient.GetClockedInUsers();
-            Users.Clear();
-            Users.AddRange(users);
+            LoadedCommand = new DelegateCommand(OnLoaded);
+        }
+
+        private void OnLoaded()
+        {
+            _navigationService.GoToLogin();
         }
     }
 }

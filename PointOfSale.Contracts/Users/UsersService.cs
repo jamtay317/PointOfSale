@@ -17,5 +17,18 @@ namespace PointOfSale.Contracts.Users
         {
             return _usersRepostory.Get().Where(user => user.IsClockedIn).ToList();
         }
+
+        public LoginStatus Login(string employeeNumber, string password)
+        {
+            var clockedInUsers = GetClockedInUsers();
+            if (!clockedInUsers.Any(user => employeeNumber == user.EmployeeNumber))
+                return LoginStatus.NeedsClockedIn;
+
+            var clockedInUser = clockedInUsers.Single(user => user.EmployeeNumber == employeeNumber);
+
+            return clockedInUser.Password == password ?
+                LoginStatus.ValidLogin : 
+                LoginStatus.InvalidLogin;
+        }
     }
 }

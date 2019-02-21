@@ -9,5 +9,8 @@ namespace PointOfSale.Contracts.Users
     {
         [OperationContract]
         ICollection<User> GetClockedInUsers();
+
+        [OperationContract]
+        LoginStatus Login(string username, string password);
     }
 }

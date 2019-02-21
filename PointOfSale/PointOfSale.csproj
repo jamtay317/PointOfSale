@@ -83,13 +83,29 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="App_Start\ViewConfig.cs" />
     <Compile Include="Connected Services\UsersService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Constants\Regions.cs" />
+    <Compile Include="Constants\Views.cs" />
+    <Compile Include="DataProvider\Users\IUserDataProvider.cs" />
+    <Compile Include="DataProvider\Users\UserDataProvider.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Services\Navigatoin\INavigationService.cs" />
+    <Compile Include="Services\Navigatoin\NavigationService.cs" />
     <Compile Include="ViewModels\Bases\ViewModelBase.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="Views\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrdersView.xaml.cs">
+      <DependentUpon>OrdersView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Shell.xaml.cs">
       <DependentUpon>Shell.xaml</DependentUpon>
     </Compile>
@@ -124,6 +140,9 @@
     <None Include="Connected Services\UsersService\users2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\UsersService\users3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\UsersService\UsersService.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -135,9 +154,20 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DataProvider\" />
+    <ProjectReference Include="..\PointOfSale.Contracts\PointOfSale.Contracts.csproj">
+      <Project>{a70dcfb1-aa56-4c30-b6ed-929cf1d8f90f}</Project>
+      <Name>PointOfSale.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OrdersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Shell.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

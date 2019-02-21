@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PointOfSale.Contracts.Users" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PointOfSale.Contracts.Users" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="LoginStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="InvalidLogin" />
+      <xs:enumeration value="ValidLogin" />
+      <xs:enumeration value="NeedsClockedIn" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LoginStatus" nillable="true" type="tns:LoginStatus" />
+</xs:schema>
