@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:8080/users?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8080/users?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8080/users?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PointOfSale.Models" />
+      <xsd:import schemaLocation="http://localhost:8080/users?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/PointOfSale.Contracts.Users" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IUserService_GetClockedInUsers_InputMessage">
@@ -13,16 +14,35 @@
   <wsdl:message name="IUserService_GetClockedInUsers_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetClockedInUsersResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
   <wsdl:portType name="IUserService">
     <wsdl:operation name="GetClockedInUsers">
       <wsdl:input wsam:Action="http://tempuri.org/IUserService/GetClockedInUsers" message="tns:IUserService_GetClockedInUsers_InputMessage" />
       <wsdl:output wsam:Action="http://tempuri.org/IUserService/GetClockedInUsersResponse" message="tns:IUserService_GetClockedInUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsam:Action="http://tempuri.org/IUserService/Login" message="tns:IUserService_Login_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IUserService/LoginResponse" message="tns:IUserService_Login_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IUserService" type="tns:IUserService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetClockedInUsers">
       <soap:operation soapAction="http://tempuri.org/IUserService/GetClockedInUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IUserService/Login" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

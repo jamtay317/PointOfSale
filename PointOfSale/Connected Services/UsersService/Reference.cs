@@ -171,6 +171,12 @@ namespace PointOfSale.UsersService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetClockedInUsers", ReplyAction="http://tempuri.org/IUserService/GetClockedInUsersResponse")]
         System.Threading.Tasks.Task<PointOfSale.UsersService.User[]> GetClockedInUsersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/Login", ReplyAction="http://tempuri.org/IUserService/LoginResponse")]
+        PointOfSale.Contracts.Users.LoginStatus Login(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/Login", ReplyAction="http://tempuri.org/IUserService/LoginResponse")]
+        System.Threading.Tasks.Task<PointOfSale.Contracts.Users.LoginStatus> LoginAsync(string username, string password);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -206,6 +212,14 @@ namespace PointOfSale.UsersService {
         
         public System.Threading.Tasks.Task<PointOfSale.UsersService.User[]> GetClockedInUsersAsync() {
             return base.Channel.GetClockedInUsersAsync();
+        }
+        
+        public PointOfSale.Contracts.Users.LoginStatus Login(string username, string password) {
+            return base.Channel.Login(username, password);
+        }
+        
+        public System.Threading.Tasks.Task<PointOfSale.Contracts.Users.LoginStatus> LoginAsync(string username, string password) {
+            return base.Channel.LoginAsync(username, password);
         }
     }
 }

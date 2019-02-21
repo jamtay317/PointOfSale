@@ -6,26 +6,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PointOfSale.Views"
-        xmlns:userModel="clr-namespace:PointOfSale.UsersService"
+        xmlns:constants="clr-namespace:PointOfSale.Constants"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         Title="{Binding Title}" Height="450" Width="800">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}"></i:InvokeCommandAction>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition MaxWidth="200"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <ListBox ItemsSource="{Binding Users}" >
-            <ListBox.ItemTemplate>
-                <DataTemplate DataType="userModel:User">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding LastName}"></TextBlock>
-                        <TextBlock Text=", "></TextBlock>
-                        <TextBlock Text="{Binding FirstName}"></TextBlock>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        
-        <Button Grid.Column="1" Command="{Binding GetUsersCommand}">Get Users</Button>
+        <ContentControl Grid.Row="1" prism:RegionManager.RegionName="{x:Static constants:Regions.MainRegion}"></ContentControl>
     </Grid>
 </Window>

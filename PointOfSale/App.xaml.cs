@@ -1,6 +1,7 @@
 ﻿using Prism.Ioc;
 using Prism.Unity;
 using System.Windows;
+using PointOfSale.App_Start;
 
 namespace PointOfSale
 {
@@ -11,12 +12,17 @@ namespace PointOfSale
     {
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            
+            containerRegistry
+                .RegisterSingletons()
+                .RegisterInstances()
+                .RegisterViews();
         }
 
         protected override Window CreateShell()
         {
             return Container.Resolve<Views.Shell>();
         }
+
+        
     }
 }
