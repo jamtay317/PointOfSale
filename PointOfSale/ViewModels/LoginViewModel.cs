@@ -24,6 +24,7 @@ namespace PointOfSale.ViewModels
 
         public ObservableCollection<User> ClockedInUsers { get; set; }
         public DelegateCommand<string> KeypadClickedCommand { get; set; }
+        public DelegateCommand ClockInCommand { get; set; }
         public LoginModel LoginModel { get; set; } = new LoginModel();
 
         private User _selectedUser;
@@ -48,6 +49,12 @@ namespace PointOfSale.ViewModels
         protected override void RegiserCommands()
         {
             KeypadClickedCommand = new DelegateCommand<string>(KeypadClicked);
+            ClockInCommand = new DelegateCommand(Clockin);
+        }
+
+        private void Clockin()
+        {
+            _navigationService.Navigate(Constants.Views.ClockInView);
         }
 
         protected override void RegisterEvents()
@@ -79,6 +86,7 @@ namespace PointOfSale.ViewModels
 
         protected override async void GetData()
         {
+            ClockedInUsers.Clear();
             var clockedInUsers = await _userDataProvider.GetClockedInUsers();
             ClockedInUsers.AddRange(clockedInUsers);
         }

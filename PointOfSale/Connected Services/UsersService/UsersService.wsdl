@@ -20,6 +20,18 @@
   <wsdl:message name="IUserService_Login_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserService_ClockIn_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClockIn" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ClockIn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClockInResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ClockOut_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClockOut" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ClockOut_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClockOutResponse" />
+  </wsdl:message>
   <wsdl:portType name="IUserService">
     <wsdl:operation name="GetClockedInUsers">
       <wsdl:input wsam:Action="http://tempuri.org/IUserService/GetClockedInUsers" message="tns:IUserService_GetClockedInUsers_InputMessage" />
@@ -28,6 +40,14 @@
     <wsdl:operation name="Login">
       <wsdl:input wsam:Action="http://tempuri.org/IUserService/Login" message="tns:IUserService_Login_InputMessage" />
       <wsdl:output wsam:Action="http://tempuri.org/IUserService/LoginResponse" message="tns:IUserService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClockIn">
+      <wsdl:input wsam:Action="http://tempuri.org/IUserService/ClockIn" message="tns:IUserService_ClockIn_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IUserService/ClockInResponse" message="tns:IUserService_ClockIn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClockOut">
+      <wsdl:input wsam:Action="http://tempuri.org/IUserService/ClockOut" message="tns:IUserService_ClockOut_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IUserService/ClockOutResponse" message="tns:IUserService_ClockOut_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IUserService" type="tns:IUserService">
@@ -43,6 +63,24 @@
     </wsdl:operation>
     <wsdl:operation name="Login">
       <soap:operation soapAction="http://tempuri.org/IUserService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClockIn">
+      <soap:operation soapAction="http://tempuri.org/IUserService/ClockIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClockOut">
+      <soap:operation soapAction="http://tempuri.org/IUserService/ClockOut" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

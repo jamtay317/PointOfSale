@@ -11,6 +11,7 @@ namespace PointOfSale
             
             registry.RegisterSingleton(typeof(IUserDataProvider),typeof(UserDataProvider));
             registry.RegisterSingleton(typeof(INavigationService), typeof(NavigationService));
+            registry.RegisterSingleton(typeof(ITimeClockDataProvider), typeof(TimeClockDataProvider));
             return registry;
         }
 

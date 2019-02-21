@@ -8,6 +8,7 @@ namespace PointOfSale.App_Start
         {
             registry.RegisterForNavigation<Views.LoginView>(Constants.Views.LoginView);
             registry.RegisterForNavigation<Views.OrdersView>(Constants.Views.OrdersView);
+            registry.RegisterForNavigation<Views.ClockInView>(Constants.Views.ClockInView);
 
             return registry;
         }

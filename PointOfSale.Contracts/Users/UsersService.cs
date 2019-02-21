@@ -30,5 +30,18 @@ namespace PointOfSale.Contracts.Users
                 LoginStatus.ValidLogin : 
                 LoginStatus.InvalidLogin;
         }
+
+        public void ClockIn(string employeeNumber)
+        {
+            var user =_usersRepostory.Get().Single(x => x.EmployeeNumber == employeeNumber);
+            user.IsClockedIn = true;
+        }
+
+        public void ClockOut(string employeeNumber)
+        {
+            var user = _usersRepostory.Get().Single(x => x.EmployeeNumber == employeeNumber);
+            user.IsClockedIn = false;
+
+        }
     }
 }

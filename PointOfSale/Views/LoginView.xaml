@@ -10,6 +10,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
+
         <Style TargetType="TextBox">
             <Setter Property="Width" Value="50"></Setter>
             <Setter Property="Height" Value="50"></Setter>
@@ -23,14 +24,7 @@
             <Setter Property="IsReadOnly" Value="True"></Setter>
         </Style>
         
-        <Style TargetType="Button">
-            <Setter Property="Width" Value="50"></Setter>
-            <Setter Property="Height" Value="50"></Setter>
-            <Setter Property="Margin" Value="10"></Setter>
-            <Setter Property="IsEnabled" Value="{Binding IsUserSelected, Mode=OneWay}"></Setter>
-            <Setter Property="Command" Value="{Binding KeypadClickedCommand}"></Setter>
-            <Setter Property="CommandParameter" Value="{Binding Content, RelativeSource={RelativeSource Self}}"></Setter>
-        </Style>
+
     </UserControl.Resources>
     <Grid>
             <Grid.ColumnDefinitions>
@@ -42,6 +36,7 @@
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="45"></ColumnDefinition>
             </Grid.ColumnDefinitions>
         
             <Grid.RowDefinitions>
@@ -64,23 +59,24 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+        <Button Grid.Column="8" Height="35" VerticalAlignment="Top" Command="{Binding ClockInCommand}">Clock In</Button>
 
         <TextBox Grid.Column="2" Grid.Row="1" Text="{Binding LoginModel.FirstNumberString, Mode=OneWay}"></TextBox>
         <TextBox Grid.Column="3" Grid.Row="1" Text="{Binding LoginModel.SecondNumberString, Mode=OneWay}"></TextBox>
         <TextBox Grid.Column="4" Grid.Row="1" Text="{Binding LoginModel.ThirdNumberString, Mode=OneWay}"></TextBox>
         <TextBox Grid.Column="5" Grid.Row="1" Text="{Binding LoginModel.FourthNumberString, Mode=OneWay}"></TextBox>
         
-        <Button Grid.Row="2" Grid.Column="2" Content="7"></Button>
-        <Button Grid.Row="2" Grid.Column="3" Content="8"></Button>
-        <Button Grid.Row="2" Grid.Column="4" Content="9"></Button>
-        
-        <Button Grid.Row="3" Grid.Column="2" Content="4"></Button>
-        <Button Grid.Row="3" Grid.Column="3" Content="5"></Button>
-        <Button Grid.Row="3" Grid.Column="4" Content="6"></Button>
-        
-        <Button Grid.Row="4" Grid.Column="2" Content="1"></Button>
-        <Button Grid.Row="4" Grid.Column="3" Content="2"></Button>
-        <Button Grid.Row="4" Grid.Column="4" Content="3"></Button>
+        <Button Style="{StaticResource Keypad}" Grid.Row="2" Grid.Column="2" Content="7"></Button>
+        <Button Style="{StaticResource Keypad}" Grid.Row="2" Grid.Column="3" Content="8"></Button>
+        <Button Style="{StaticResource Keypad}" Grid.Row="2" Grid.Column="4" Content="9"></Button>
+
+        <Button Style="{StaticResource Keypad}" Grid.Row="3" Grid.Column="2" Content="4"></Button>
+        <Button Style="{StaticResource Keypad}" Grid.Row="3" Grid.Column="3" Content="5"></Button>
+        <Button Style="{StaticResource Keypad}" Grid.Row="3" Grid.Column="4" Content="6"></Button>
+
+        <Button Style="{StaticResource Keypad}" Grid.Row="4" Grid.Column="2" Content="1"></Button>
+        <Button Style="{StaticResource Keypad}" Grid.Row="4" Grid.Column="3" Content="2"></Button>
+        <Button Style="{StaticResource Keypad}" Grid.Row="4" Grid.Column="4" Content="3"></Button>
         
     </Grid>
 </UserControl>
