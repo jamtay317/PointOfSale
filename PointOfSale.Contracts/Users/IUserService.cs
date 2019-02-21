@@ -12,5 +12,11 @@ namespace PointOfSale.Contracts.Users
 
         [OperationContract]
         LoginStatus Login(string username, string password);
+
+        [OperationContract]
+        void ClockIn(string employeeNumber);
+
+        [OperationContract]
+        void ClockOut(string employeeNumber);
     }
 }

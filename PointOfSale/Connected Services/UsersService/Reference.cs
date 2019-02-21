@@ -177,6 +177,18 @@ namespace PointOfSale.UsersService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/Login", ReplyAction="http://tempuri.org/IUserService/LoginResponse")]
         System.Threading.Tasks.Task<PointOfSale.Contracts.Users.LoginStatus> LoginAsync(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/ClockIn", ReplyAction="http://tempuri.org/IUserService/ClockInResponse")]
+        void ClockIn(string employeeNumber);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/ClockIn", ReplyAction="http://tempuri.org/IUserService/ClockInResponse")]
+        System.Threading.Tasks.Task ClockInAsync(string employeeNumber);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/ClockOut", ReplyAction="http://tempuri.org/IUserService/ClockOutResponse")]
+        void ClockOut(string employeeNumber);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/ClockOut", ReplyAction="http://tempuri.org/IUserService/ClockOutResponse")]
+        System.Threading.Tasks.Task ClockOutAsync(string employeeNumber);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -220,6 +232,22 @@ namespace PointOfSale.UsersService {
         
         public System.Threading.Tasks.Task<PointOfSale.Contracts.Users.LoginStatus> LoginAsync(string username, string password) {
             return base.Channel.LoginAsync(username, password);
+        }
+        
+        public void ClockIn(string employeeNumber) {
+            base.Channel.ClockIn(employeeNumber);
+        }
+        
+        public System.Threading.Tasks.Task ClockInAsync(string employeeNumber) {
+            return base.Channel.ClockInAsync(employeeNumber);
+        }
+        
+        public void ClockOut(string employeeNumber) {
+            base.Channel.ClockOut(employeeNumber);
+        }
+        
+        public System.Threading.Tasks.Task ClockOutAsync(string employeeNumber) {
+            return base.Channel.ClockOutAsync(employeeNumber);
         }
     }
 }

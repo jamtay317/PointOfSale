@@ -29,4 +29,28 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ClockIn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="employeeNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClockInResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClockOut">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="employeeNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClockOutResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
