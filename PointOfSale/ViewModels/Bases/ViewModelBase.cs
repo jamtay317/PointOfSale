@@ -25,7 +25,7 @@ namespace PointOfSale.ViewModels.Bases
             return true;
         }
 
-        public void OnNavigatedFrom(NavigationContext navigationContext)
+        public virtual void OnNavigatedFrom(NavigationContext navigationContext)
         {
         }
     }
