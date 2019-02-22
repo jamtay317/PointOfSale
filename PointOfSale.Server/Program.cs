@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ServiceModel;
 using System.ServiceModel.Description;
+using PointOfSale.Contracts.Menu;
 using PointOfSale.Contracts.Users;
 using PointOfSale.Server.ServiceHosts;
 using Unity;
@@ -16,7 +17,11 @@ namespace PointOfSale.Server
 
             var usersServiceHost = new UnityServiceHost(container, typeof(UsersService));
             usersServiceHost.Open();
-            Console.WriteLine($"UsersService hosted on http://localhost:8080/users");
+            Console.WriteLine("UsersService hosted on http://localhost:8080/users");
+
+            var menuServiceHost = new UnityServiceHost(container, typeof(MenuService));
+            menuServiceHost.Open();
+            Console.WriteLine("MenuService hosted on http://localhost:8080/menu");
 
             Console.ReadLine();
         }

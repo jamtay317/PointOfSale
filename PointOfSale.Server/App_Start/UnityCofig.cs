@@ -15,6 +15,7 @@ namespace PointOfSale.Server
         public static IUnityContainer RegisterInstances(this IUnityContainer container)
         {
             container.RegisterType(typeof(ILookupRepository<>), typeof(LookupRepository<>));
+            container.RegisterType(typeof(IRepository<>), typeof(Repository<>));
             
             return container;
         }

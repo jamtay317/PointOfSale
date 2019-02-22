@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ad332e23-f0ba-4208-8f0a-dc639220ecdb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8080/menu" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="menu.xsd" MetadataType="Schema" ID="22528120-7578-4c03-b507-a270ad222fa3" SourceId="1" SourceUrl="http://localhost:8080/menu?xsd=xsd2" />
+    <MetadataFile FileName="menu1.xsd" MetadataType="Schema" ID="33ed175a-e39a-44ec-842d-1cfe6d021c70" SourceId="1" SourceUrl="http://localhost:8080/menu?xsd=xsd1" />
+    <MetadataFile FileName="menu2.xsd" MetadataType="Schema" ID="bf7df1e5-6160-4d81-9853-d2c8b70c8a46" SourceId="1" SourceUrl="http://localhost:8080/menu?xsd=xsd0" />
+    <MetadataFile FileName="MenuService.wsdl" MetadataType="Wsdl" ID="836ee8c7-8686-46af-aed7-f91c3c02e178" SourceId="1" SourceUrl="http://localhost:8080/menu?wsdl" />
+    <MetadataFile FileName="menu.disco" MetadataType="Disco" ID="4b0c68de-c85f-4fc4-942e-28b01317e6d9" SourceId="1" SourceUrl="http://localhost:8080/menu?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

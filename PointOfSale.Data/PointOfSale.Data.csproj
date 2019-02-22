@@ -57,7 +57,9 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ILookupRepository.cs" />
+    <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\LookupRepository.cs" />
+    <Compile Include="Repository\Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PointOfSale.Models\PointOfSale.Models.csproj">
