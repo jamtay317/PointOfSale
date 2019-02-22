@@ -2,6 +2,8 @@
 using System.ServiceModel;
 using System.ServiceModel.Description;
 using PointOfSale.Contracts.Users;
+using PointOfSale.Server.ServiceHosts;
+using Unity;
 
 namespace PointOfSale.Server
 {
@@ -9,24 +11,14 @@ namespace PointOfSale.Server
     {
         static void Main(string[] args)
         {
-            var baseAddress = new Uri("http://localhost:8080/users");
+            IUnityContainer container = new UnityContainer();
+            container.RegisterSingletons().RegisterInstances();
 
-            using (var serviceHost = new ServiceHost(typeof(UsersService), baseAddress))
-            {
-                var serviceMetadataBehavior = new ServiceMetadataBehavior();
-                serviceMetadataBehavior.HttpGetEnabled = true;
-                serviceMetadataBehavior.MetadataExporter.PolicyVersion = PolicyVersion.Policy15;
-                serviceHost.Description.Behaviors.Add((serviceMetadataBehavior));
+            var usersServiceHost = new UnityServiceHost(container, typeof(UsersService));
+            usersServiceHost.Open();
+            Console.WriteLine($"UsersService hosted on http://localhost:8080/users");
 
-                serviceHost.Open();
-
-                Console.WriteLine("The service is ready at {0}", baseAddress);
-                Console.WriteLine("Press <Enter> to stop the service.");
-                Console.ReadLine();
-
-                // Close the ServiceHost.
-                serviceHost.Close();
-            }
+            Console.ReadLine();
         }
     }
 }
