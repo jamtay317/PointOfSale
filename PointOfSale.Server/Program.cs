@@ -1,6 +1,4 @@
 ﻿using System;
-using System.ServiceModel;
-using System.ServiceModel.Description;
 using PointOfSale.Contracts.Menu;
 using PointOfSale.Contracts.Users;
 using PointOfSale.Server.ServiceHosts;
@@ -23,6 +21,7 @@ namespace PointOfSale.Server
             menuServiceHost.Open();
             Console.WriteLine("MenuService hosted on http://localhost:8080/menu");
 
+            Console.WriteLine("Press <Enter> To Exit");
             Console.ReadLine();
         }
     }

@@ -1,11 +1,11 @@
-﻿using System.Windows;
+﻿using MahApps.Metro.Controls;
 
 namespace PointOfSale.Views
 {
     /// <summary>
     /// Interaction logic for Shell.xaml
     /// </summary>
-    public partial class Shell : Window
+    public partial class Shell :MetroWindow
     {
         public Shell()
         {

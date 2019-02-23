@@ -30,6 +30,11 @@ namespace PointOfSale.Data.Migrations
                     new User(){EmployeeNumber = "102", FirstName = "Paul", LastName = "Smith", IsClockedIn = false, Password = "1234", PhoneNumber = "(789) 101-1121"}, 
                 });
             }
+
+            if (!context.Categories.Any())
+            {
+                context.Categories.Add(new Category() {Name = "Drinks"});
+            }
         }
     }
 }

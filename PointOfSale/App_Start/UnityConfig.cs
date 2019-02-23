@@ -1,4 +1,5 @@
-﻿using PointOfSale.DataProvider.Users;
+﻿using PointOfSale.DataProvider.Menu;
+using PointOfSale.DataProvider.Users;
 using PointOfSale.Services.Navigatoin;
 using Prism.Ioc;
 
@@ -12,6 +13,7 @@ namespace PointOfSale
             registry.RegisterSingleton(typeof(IUserDataProvider),typeof(UserDataProvider));
             registry.RegisterSingleton(typeof(INavigationService), typeof(NavigationService));
             registry.RegisterSingleton(typeof(ITimeClockDataProvider), typeof(TimeClockDataProvider));
+            registry.RegisterSingleton(typeof(IMenuDataProvider), typeof(MenuDataProvider));
             return registry;
         }
 

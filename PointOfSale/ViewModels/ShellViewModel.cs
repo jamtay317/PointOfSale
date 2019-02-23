@@ -23,7 +23,7 @@ namespace PointOfSale.ViewModels
 
         private void OnLoaded()
         {
-            _navigationService.GoToLogin();
+            _navigationService.Navigate(Constants.Views.AdminView);
         }
     }
 }

@@ -11,7 +11,13 @@ namespace PointOfSale.Contracts.Menu
         ICollection<Category> GetCategories();
 
         [OperationContract]
+        Category GetCategory(int id);
+
+        [OperationContract]
         ICollection<MenuItem> GetCategoryMenuItems(int categoryId);
+
+        [OperationContract]
+        MenuItem GetMenuItem(int id);
 
         [OperationContract]
         MenuItem SaveMenuItem(MenuItem menuItem);

@@ -13,6 +13,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PointOfSale.Models" minOccurs="0" name="GetCategoryResult" nillable="true" type="q2:Category" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetCategoryMenuItems">
     <xs:complexType>
       <xs:sequence>
@@ -23,35 +37,49 @@
   <xs:element name="GetCategoryMenuItemsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PointOfSale.Models" minOccurs="0" name="GetCategoryMenuItemsResult" nillable="true" type="q2:ArrayOfMenuItem" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PointOfSale.Models" minOccurs="0" name="GetCategoryMenuItemsResult" nillable="true" type="q3:ArrayOfMenuItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMenuItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMenuItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PointOfSale.Models" minOccurs="0" name="GetMenuItemResult" nillable="true" type="q4:MenuItem" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SaveMenuItem">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PointOfSale.Models" minOccurs="0" name="menuItem" nillable="true" type="q3:MenuItem" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/PointOfSale.Models" minOccurs="0" name="menuItem" nillable="true" type="q5:MenuItem" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SaveMenuItemResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PointOfSale.Models" minOccurs="0" name="SaveMenuItemResult" nillable="true" type="q4:MenuItem" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/PointOfSale.Models" minOccurs="0" name="SaveMenuItemResult" nillable="true" type="q6:MenuItem" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SaveCategory">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/PointOfSale.Models" minOccurs="0" name="category" nillable="true" type="q5:Category" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/PointOfSale.Models" minOccurs="0" name="category" nillable="true" type="q7:Category" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SaveCategoryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/PointOfSale.Models" minOccurs="0" name="SaveCategoryResult" nillable="true" type="q6:Category" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/PointOfSale.Models" minOccurs="0" name="SaveCategoryResult" nillable="true" type="q8:Category" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

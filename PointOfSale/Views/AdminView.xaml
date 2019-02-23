@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="PointOfSale.Views.AdminView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale.Views"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:constants="clr-namespace:PointOfSale.Constants"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+           <Grid.RowDefinitions>
+               <RowDefinition Height="Auto"></RowDefinition>
+               <RowDefinition Height="*"></RowDefinition>
+           </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="Admin">
+                <MenuItem Header="Categories" Command="{Binding NavigateToAdminCommand}" CommandParameter="{x:Static constants:Views.CategoriesView}"></MenuItem>
+                <MenuItem Header="Menu" Command="{Binding NavigateToAdminCommand}" CommandParameter="{x:Static constants:Views.MenuItemView}"></MenuItem>
+                <MenuItem Header="Employees"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Server" Command="{Binding NavigateToServerView}"></MenuItem>
+            <MenuItem Header="Reports"></MenuItem>
+        </Menu>
+        <ContentControl Grid.Row="1" prism:RegionManager.RegionName="{x:Static constants:Regions.AdminRegion}"></ContentControl>
+    </Grid>
+</UserControl>

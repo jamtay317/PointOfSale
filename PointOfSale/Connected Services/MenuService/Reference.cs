@@ -164,11 +164,23 @@ namespace PointOfSale.MenuService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMenuServcie/GetCategories", ReplyAction="http://tempuri.org/IMenuServcie/GetCategoriesResponse")]
         System.Threading.Tasks.Task<PointOfSale.MenuService.Category[]> GetCategoriesAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMenuServcie/GetCategory", ReplyAction="http://tempuri.org/IMenuServcie/GetCategoryResponse")]
+        PointOfSale.MenuService.Category GetCategory(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMenuServcie/GetCategory", ReplyAction="http://tempuri.org/IMenuServcie/GetCategoryResponse")]
+        System.Threading.Tasks.Task<PointOfSale.MenuService.Category> GetCategoryAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMenuServcie/GetCategoryMenuItems", ReplyAction="http://tempuri.org/IMenuServcie/GetCategoryMenuItemsResponse")]
         PointOfSale.MenuService.MenuItem[] GetCategoryMenuItems(int categoryId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMenuServcie/GetCategoryMenuItems", ReplyAction="http://tempuri.org/IMenuServcie/GetCategoryMenuItemsResponse")]
         System.Threading.Tasks.Task<PointOfSale.MenuService.MenuItem[]> GetCategoryMenuItemsAsync(int categoryId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMenuServcie/GetMenuItem", ReplyAction="http://tempuri.org/IMenuServcie/GetMenuItemResponse")]
+        PointOfSale.MenuService.MenuItem GetMenuItem(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMenuServcie/GetMenuItem", ReplyAction="http://tempuri.org/IMenuServcie/GetMenuItemResponse")]
+        System.Threading.Tasks.Task<PointOfSale.MenuService.MenuItem> GetMenuItemAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMenuServcie/SaveMenuItem", ReplyAction="http://tempuri.org/IMenuServcie/SaveMenuItemResponse")]
         PointOfSale.MenuService.MenuItem SaveMenuItem(PointOfSale.MenuService.MenuItem menuItem);
@@ -218,12 +230,28 @@ namespace PointOfSale.MenuService {
             return base.Channel.GetCategoriesAsync();
         }
         
+        public PointOfSale.MenuService.Category GetCategory(int id) {
+            return base.Channel.GetCategory(id);
+        }
+        
+        public System.Threading.Tasks.Task<PointOfSale.MenuService.Category> GetCategoryAsync(int id) {
+            return base.Channel.GetCategoryAsync(id);
+        }
+        
         public PointOfSale.MenuService.MenuItem[] GetCategoryMenuItems(int categoryId) {
             return base.Channel.GetCategoryMenuItems(categoryId);
         }
         
         public System.Threading.Tasks.Task<PointOfSale.MenuService.MenuItem[]> GetCategoryMenuItemsAsync(int categoryId) {
             return base.Channel.GetCategoryMenuItemsAsync(categoryId);
+        }
+        
+        public PointOfSale.MenuService.MenuItem GetMenuItem(int id) {
+            return base.Channel.GetMenuItem(id);
+        }
+        
+        public System.Threading.Tasks.Task<PointOfSale.MenuService.MenuItem> GetMenuItemAsync(int id) {
+            return base.Channel.GetMenuItemAsync(id);
         }
         
         public PointOfSale.MenuService.MenuItem SaveMenuItem(PointOfSale.MenuService.MenuItem menuItem) {

@@ -17,12 +17,23 @@ namespace PointOfSale.Contracts.Menu
         }
         public ICollection<Category> GetCategories()
         {
-            return _categoryRepository.Get().ToList();
+            var list = _categoryRepository.Get().ToList();
+            return list;
+        }
+
+        public Category GetCategory(int id)
+        {
+            return _categoryRepository.Get(id);
         }
 
         public ICollection<MenuItem> GetCategoryMenuItems(int categoryId)
         {
             return _menuItemRepository.Get().Where(menuItem => menuItem.CategoryId == categoryId).ToList();
+        }
+
+        public MenuItem GetMenuItem(int id)
+        {
+            return _menuItemRepository.Get(id);
         }
 
         public MenuItem SaveMenuItem(MenuItem menuItem)
